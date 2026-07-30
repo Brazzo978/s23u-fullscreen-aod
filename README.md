@@ -16,11 +16,6 @@ A systemless Magisk module that enables the S24-style fullscreen wallpaper Alway
 > [!WARNING]
 > Do **not** flash the Magisk module ZIP from TWRP. Only the separately named rescue ZIP is intended for TWRP.
 
-### Upgrading from the withdrawn 1/10 Hz builds
-
-If Magisk still shows version `2.0-10hz`, do **not** press its **Action** button: the old action script can send the withdrawn 10 Hz LFD command again. Install v2.1.1 over the existing module and reboot. Because the module ID is unchanged, the new installer automatically removes the old `service.sh`, `action.sh`, and `target_hz` files before installing the stable configuration.
-
-Do not uninstall the old version first unless you specifically want to remove the feature; an in-place Magisk update performs the stale-file cleanup.
 
 ## Stable release
 
