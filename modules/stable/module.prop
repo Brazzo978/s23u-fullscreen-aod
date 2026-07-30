@@ -1,0 +1,6 @@
+id=s23u_aod_patch
+name=S23 Ultra Fullscreen AOD (30 Hz Stable)
+version=2.1.0-30hz-stable
+versionCode=220
+author=Codex + Manu
+description=Fullscreen wallpaper AOD for SM-S918B One UI 8 with S24 doze brightness maps and Samsung's stable fixed AOD refresh path (30 Hz observed). No background controller or Action command.
