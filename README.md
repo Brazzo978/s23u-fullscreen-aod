@@ -30,7 +30,7 @@ The module also adds a static resource overlay containing the missing S24 doze a
 
 Samsung still converts those target nits through the S23 Ultra's own display calibration and applies its brightness limits.
 
-The stable module contains **no `service.sh`, no `action.sh`, no polling process, and no direct LFD command**. It does not replace SystemUI or AODService, patch the kernel, add SELinux rules, or disable SELinux.
+The stable module does not replace SystemUI or AODService, patch the kernel, add SELinux rules, or disable SELinux.
 ## Firmware cross-checks
 
 The module was derived and checked against Samsung AP firmware; no foreign firmware component is included or flashed.
@@ -39,24 +39,21 @@ The module was derived and checked against Samsung AP firmware; no foreign firmw
 - S24 Ultra: `S928BXXS4CZA1` (Android 16 / One UI 8)
 - Snapdragon S24+: `S926U1UES5CZD2` (Android 16 / One UI 8)
 
-The S24+ product overlay contains the exact doze lux/nits arrays used by this module. Its key AODService refresh and brightness classes decompile identically to the tested S23 Ultra build. Samsung's AOD burn-in monitor and clock-view anti-burn-in calls are also already identical on the S23 Ultra, so the module preserves the native implementation instead of porting another APK.
-
 Panel command tables are intentionally not ported. The S23 Ultra firmware targets `S6E3HAE / AMB681AZ01`; the S24+ targets different `S6E3FAC / AMB655AY01` and `S6E3HAF / AMB666FM01` panels with different HLPM/LFD register sequences. Those files are hardware-specific and unsafe to reuse.
 
 ## Requirements
 
 - Samsung Galaxy S23 Ultra `SM-S918B`, codename `dm3q`
-- Android 16 / One UI 8 (`SDK 36`)
+- Android 16 / One UI 8 (`SDK 36`) (should work on one ui 7 and 6 too ) 
 - Unlocked bootloader and Magisk
 - A fullscreen-compatible lock-screen wallpaper and AOD enabled
 
-The installer rejects a different model, codename, or API level. Builds other than `S918BXXS8EZA1` remain untested.
 
 ## Installation
 
 1. Copy `RESCUE-disable-S23U-AOD-module-TWRP-v2.zip` somewhere accessible from TWRP.
 2. Open Magisk, choose **Modules > Install from storage**, and select the stable ZIP.
-3. Verify that the installer reports `SM-S918B / dm3q / SDK 36` and finishes successfully.
+3. Verify that the installer finishes successfully.
 4. Reboot.
 5. Let AOD settle for at least 20 seconds and check that the wallpaper remains stable.
 
@@ -108,4 +105,4 @@ F2BD84BE57412022EF2B8FD090D92F52A7693490D4931B1384059198FFCA529C  RESCUE-disable
 ```
 
 ## Credits
-
+Me & Codex for discovering that the mappings were not there so needed to port them from s24 to make it work (dim screen bug with only floating feature)
