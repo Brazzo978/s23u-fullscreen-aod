@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.IO.Compression
 
 $source = Join-Path $PSScriptRoot 'modules/stable'
-$name = 'S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.0.zip'
+$name = 'S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.1.zip'
 $destination = Join-Path $OutputDirectory $name
 $files = @(
     'customize.sh',

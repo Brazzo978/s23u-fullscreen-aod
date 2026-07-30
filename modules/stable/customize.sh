@@ -1,16 +1,33 @@
 #!/system/bin/sh
 
-ui_print "- Checking supported device and firmware"
+ui_print "- Checking device and firmware"
 MODEL="$(getprop ro.product.model)"
 DEVICE="$(getprop ro.product.device)"
 SDK="$(getprop ro.build.version.sdk)"
 BUILD="$(getprop ro.build.PDA)"
+MANUFACTURER="$(getprop ro.product.manufacturer)"
+BRAND="$(getprop ro.product.brand)"
 
-if [ "$MODEL" != "SM-S918B" ] || [ "$DEVICE" != "dm3q" ] || [ "$SDK" != "36" ]; then
-  abort "! Refusing install: expected SM-S918B / dm3q / SDK 36, got $MODEL / $DEVICE / SDK $SDK"
+if [ "$MANUFACTURER" != "samsung" ] && [ "$BRAND" != "samsung" ]; then
+  abort "! Refusing install: this module is only intended for Samsung devices"
 fi
 
+ui_print "- Detected: $MODEL / $DEVICE / SDK $SDK"
 ui_print "- Firmware: $BUILD"
+
+if [ "$MODEL" != "SM-S918B" ] || [ "$DEVICE" != "dm3q" ] || [ "$SDK" != "36" ] || [ "$BUILD" != "S918BXXS8EZA1" ]; then
+  ui_print "!"
+  ui_print "! WARNING: UNTESTED DEVICE OR FIRMWARE"
+  ui_print "! Tested only on SM-S918B / dm3q / SDK 36"
+  ui_print "! Build S918BXXS8EZA1 with Magisk 30.7"
+  ui_print "! Display behavior differs between Samsung models."
+  ui_print "! Boot loops, black AOD, flicker, panel artifacts,"
+  ui_print "! burn-in, or data loss are possible."
+  ui_print "! Continuing means you accept all responsibility."
+  ui_print "! Keep the TWRP rescue ZIP accessible before reboot."
+  ui_print "!"
+  sleep 5
+fi
 SOURCE_FF="/system/etc/floating_feature.xml"
 DEST_FF="$MODPATH/system/etc/floating_feature.xml"
 

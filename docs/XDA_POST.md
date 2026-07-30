@@ -14,7 +14,7 @@ This module enables fullscreen AOD, supplies the missing doze-brightness map, an
 - Root: Magisk 30.7
 - SELinux: Enforcing
 
-Other builds and models are untested. The installer rejects a different model, codename, or API level.
+Other builds and models are untested. The installer displays a strong warning but allows community testing on other Samsung devices at the user's own risk. Non-Samsung devices are rejected.
 
 ### What the module does
 
@@ -36,17 +36,20 @@ The module contains no background service, Action script, polling loop, or direc
 - No custom SELinux policy
 - No background root daemon
 - Systemless Magisk mount
-- Exact model/codename/API checks
+- Prominent warning on every untested model, codename, build, or API level
+- Non-Samsung device rejection
 - Installation aborts if expected floating-feature tags are absent
 - Separate TWRP rescue ZIP disables the module
 
-This cannot guarantee zero risk. Root modifications and unsupported display features can always cause boot or UI problems. Back up important data first.
+This cannot guarantee zero risk. Install and use it entirely at your own risk. The author and contributors are not responsible for a bricked device, boot loop, data loss, display damage, flicker, burn-in, battery drain, or other damage. Back up important data first, keep the rescue ZIP accessible from TWRP, and do not combine the module with other AOD/display/refresh-rate modifications.
+
+The module ZIP is for **Magisk > Modules > Install from storage** only. Do not flash it from TWRP; only the separately named rescue ZIP is intended for recovery.
 
 ### Installation
 
 1. Download the stable module and rescue ZIP.
 2. Keep the rescue ZIP accessible from TWRP.
-3. Install `S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.0.zip` through Magisk.
+3. Install `S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.1.zip` through Magisk.
 4. Reboot.
 5. Enable AOD and select a compatible lock-screen wallpaper.
 6. Wait at least 20 seconds after AOD appears and confirm there is no flicker.
@@ -85,4 +88,4 @@ Please include the exact model, `ro.build.PDA`, Magisk version, whether flicker 
 
 ### Downloads
 
-- `S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.0.zip`
+- `S23U-Fullscreen-AOD-OneUI8-30Hz-Stable-v2.1.1.zip`

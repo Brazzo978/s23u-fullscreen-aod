@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.1 - 2026-07-30
+
+- Replaced the strict `SM-S918B` / `dm3q` / SDK 36 installer whitelist with a prominent untested-device warning.
+- Other Samsung devices and firmware builds can now install the module for community testing at the user's own risk.
+- Non-Samsung devices are still rejected.
+- Added stronger Magisk, recovery, backup, display-risk, and liability warnings.
+
 ## 2.1.0 - 2026-07-30
 
 - Made Samsung's fixed AOD refresh path (`fix=1`, effective 30 Hz on the tested panel) the only supported release.
